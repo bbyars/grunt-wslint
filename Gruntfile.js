@@ -44,6 +44,19 @@ module.exports = function (grunt) {
                 maxdepth: 3,
                 maxcomplexity: 5
             }
+        },
+        wslint: {
+            all: [
+                'Gruntfile.js',
+                'tasks/**/*.js',
+                'test/**/*.js'
+            ],
+            options: {
+                noTrailingWhitespace: true,
+                noTabs: true,
+                trailingNewline: true,
+                noMultipleTrailingNewlines: true
+            }
         }
     });
 
@@ -59,5 +72,5 @@ module.exports = function (grunt) {
         fs.writeFileSync('./package.json', JSON.stringify(newPackage, null, 2) + '\n');
     });
 
-    grunt.registerTask('default', ['jshint', 'version', 'mochaTest']);
+    grunt.registerTask('default', ['wslint', 'jshint', 'version', 'mochaTest']);
 };
