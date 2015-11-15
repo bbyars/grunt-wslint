@@ -4,7 +4,8 @@ node_js:
 
 env:
   global:
-    PLACEHOLDER: true
+    # NPM_API_KEY
+    - secure: "M2cK6gIivoIY7eEQXZSByGzNQX/27ubSepS5CQBE2uvEtZxptZF1OGVbvldffFaE2qwmGncxKjYdgxjK07OoCNo6LcLTSXBgWtj5YGlmbyOAj/sbUuc2WG+WWzWGIOqI+S60xV2+nBJ31a4Hva8bsrJeCna+9+Mvph9FT+bffiguBCiDkEdvH5J6leorSCDdyEsaJ53XLKJPFYw9KkeLQSZ6AXYFipeysPnGzT9x1PzCRhSbaS1+YPKMXzGmOr6ATCqDyEe0CS2wOXDQPzGM9mcis45V4+hky8uTDRl8XYPd9Jo1FxK+BKxQSUCDLRHy/PhCte+tJAb/XODWmXgevm/Bk9Y4lKFWc9wCLpjsnjIbES4WdV5Ou1azNzqRL86ny3GNL7P/YNoHjpelQp2aPKigFHbZwKx1HYgMn7aRDYkOIxDBK3Dh7aYTEdOmuCegLthqadsYKgqmppJULzq68RXTI5lXGK7V2GcRwHK1XhvvU7A9kzviuY+g2itmlytth1LiqwcOS05np+n4S+wwFYddIsQ2JiN95QpobNLUZwVPH2u/MXj+ncS1DlOV84LjpgFZTVD0VFeDZsroHG7iKqgPm/YZP6vvmhc6QffJ48O7B44rXKRR93FXELmLLxtIUu1vtUzHrZN3Mbe+tOGVJsh8HZcSx3/Zdtf5qAVcF9k="
 
 install:
   - bundle install
@@ -12,4 +13,4 @@ install:
 
 script:
   - npm -v
-  - ./build
+  - ./build && scripts/publish
