@@ -2,8 +2,24 @@
 
 var os = require('os');
 
+function eolFor (contents) {
+    // May not match os.EOL if e.g. git changes it
+    var index = contents.indexOf('\n');
+    if (index > 0) {
+        if (contents.substring(index -1, index) === '\r') {
+            return '\r\n';
+        }
+        else {
+            return '\n';
+        }
+    }
+    else {
+        return os.EOL;
+    }
+}
+
 function noTrailingWhitespace (file, contents) {
-    var lines = contents.split(os.EOL),
+    var lines = contents.split(eolFor(contents)),
         errors = [];
 
     for (var i = 0; i < lines.length; i++) {
@@ -15,7 +31,7 @@ function noTrailingWhitespace (file, contents) {
 }
 
 function noTabs (file, contents) {
-    var lines = contents.split(os.EOL),
+    var lines = contents.split(eolFor(contents)),
         errors = [];
 
     for (var i = 0; i < lines.length; i++) {
@@ -35,8 +51,10 @@ function trailingNewline (file, contents) {
 }
 
 function noMultipleTrailingNewlines (file, contents) {
-    var errors = [];
-    if (contents[contents.length-2] === os.EOL) {
+    var errors = [],
+        doubleNewlines = eolFor(contents)  + eolFor(contents),
+        endOfFile = contents.substring(contents.length - doubleNewlines.length, contents.length);
+    if (endOfFile === doubleNewlines) {
         errors.push(file + ' has more than one trailing newline');
     }
     return errors;
