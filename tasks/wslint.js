@@ -18,10 +18,12 @@ module.exports = function (grunt) {
             errors = [];
 
         this.filesSrc.forEach(function (file) {
-            var contents = fs.readFileSync(file, 'utf8');
-            enforcedOptions.forEach(function (option) {
-                errors = errors.concat(wslint[option](file, contents));
-            });
+            if (!fs.lstatSync(path_string).isDirectory()) {
+                var contents = fs.readFileSync(file, 'utf8');
+                enforcedOptions.forEach(function (option) {
+                    errors = errors.concat(wslint[option](file, contents));
+                });
+            }
         });
 
         if (errors.length > 0) {
