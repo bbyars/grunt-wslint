@@ -7,7 +7,7 @@ function noTrailingWhitespace (file, contents) {
         errors = [];
 
     for (var i = 0; i < lines.length; i++) {
-        if (/ $/.test(lines[i])) {
+        if (/\s$/.test(lines[i])) {
             errors.push(file + ':' + (i + 1) + ' has trailing whitespace\n\t<<' + lines[i] + '>>');
         }
     }
