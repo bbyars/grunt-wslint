@@ -18,7 +18,7 @@ module.exports = function (grunt) {
             errors = [];
 
         this.filesSrc.forEach(function (file) {
-            if (!fs.lstatSync(path_string).isDirectory()) {
+            if (!fs.lstatSync(file).isDirectory()) {
                 var contents = fs.readFileSync(file, 'utf8');
                 enforcedOptions.forEach(function (option) {
                     errors = errors.concat(wslint[option](file, contents));
