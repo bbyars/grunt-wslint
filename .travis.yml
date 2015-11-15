@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "5.0"
+
+env:
+  global:
+    PLACEHOLDER: true
+
+install:
+  - bundle install
+  - npm install -g npm
+
+script:
+  - npm -v
+  - ./build

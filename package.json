@@ -1,0 +1,36 @@
+{
+  "name": "grunt-wslint",
+  "description": "Whitespace linting",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bbyars/grunt-wslint",
+  "author": "Brandon Byars <brandon.byars@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bbyars/grunt-wslint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bbyars/grunt-wslint/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-mocha-test": "~0.12.1",
+    "mocha": "~2.3.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin",
+    "whitespace",
+    "linting"
+  ]
+}
