@@ -31,9 +31,11 @@ In your project's Gruntfile, add a section named `wslint` to the data object pas
 grunt.initConfig({
   wslint: {
     all: [
-      'Gruntfile.js',
-      'src/**/*.js',
-      'test/**/*.js'
+      '**/*',
+      '!node_modules/**/*',
+      '!.git/**/*',
+      '!.DS_Store',
+      '!*.iml'
     ],
     options: {
       noTrailingWhitespace: true,
@@ -46,7 +48,8 @@ grunt.initConfig({
 ```
 
 The files source represented in `all` use the standard
-[Grunt globbing patterns](http://gruntjs.com/api/grunt.file#globbing-patterns).
+[Grunt globbing patterns](http://gruntjs.com/configuring-tasks#globbing-patterns).  The example
+above shows including all files except the ones listed.
 
 All options are represented in the example above.  Leave an option off (or set it to false) to
 avoid executing that option.  The options are as follows:

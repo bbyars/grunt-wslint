@@ -6,4 +6,3 @@ I have a liberal attitude towards accepting pull requests.  If you have a good i
 The existing code was extracted from [mountebank](https://github.com/bbyars/mountebank) and conforms
 to the whitespace standards for that project, but there are obviously other standards.  Feel free to
 add them.
-

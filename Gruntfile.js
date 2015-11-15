@@ -47,9 +47,11 @@ module.exports = function (grunt) {
         },
         wslint: {
             all: [
-                'Gruntfile.js',
-                'tasks/**/*.js',
-                'test/**/*.js'
+                '**/*',
+                '!node_modules/**/*',
+                '!.git/**/*',
+                '!.DS_Store',
+                '!*.iml'
             ],
             options: {
                 noTrailingWhitespace: true,
