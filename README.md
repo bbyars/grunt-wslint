@@ -25,4 +25,33 @@ grunt.loadNpmTasks('grunt-wslint');
 
 ## Grunt Configuration
 
-TBD
+In your project's Gruntfile, add a section named `wslint` to the data object passed into `grunt.initConfig()`.
+
+```js
+grunt.initConfig({
+  wslint: {
+    all: [
+      'Gruntfile.js',
+      'src/**/*.js',
+      'test/**/*.js'
+    ],
+    options: {
+      noTrailingWhitespace: true,
+      noTabs: true,
+      trailingNewline: true,
+      noMultipleTrailingNewlines: true
+    }
+  },
+});
+```
+
+The files source represented in `all` use the standard
+[Grunt globbing patterns](http://gruntjs.com/api/grunt.file#globbing-patterns).
+
+All options are represented in the example above.  Leave an option off (or set it to false) to
+avoid executing that option.  The options are as follows:
+
+* `noTrailingWhitespace` - Disallow lines that end in whitespace
+* `noTabs` - Disallow tabs
+* `trailingNewline` - Require at least one trailing newline at the end of the file
+* `noMultipleTrailingNewlines` - Disallow two or more trailing newlines at the end of the file
