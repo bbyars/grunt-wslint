@@ -1,5 +1,7 @@
 # grunt-mountebank
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bbyars/grunt-wslint.svg)](https://greenkeeper.io/)
+
 Linting for whitespace, to ensure consistency throughout the codebase and to make
 diffing easier.
 
